@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loggy/loggy.dart';
@@ -18,25 +19,30 @@ class _GroupWidgetState extends State<GroupWidget> {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: prefer_const_constructors
     return Scaffold(
         key: const ValueKey("groupsScaffold"),
         body: const Center(
-          // TODO
-          child: Text(
-              'Aquí colocar la lista de grupos, recordar que se se debe escuchar el controlador (groups) con obx'),
-        ),
+            // TODO
+            // child: Text(Obx(
+            //     () => ListView.builder(itemBuilder: firebaseController.groups))),
+            // 'Aquí colocar la lista de grupos, recordar que se se debe escuchar el controlador (groups) con obx')
+            ),
         floatingActionButton: FloatingActionButton(
           key: const ValueKey("addGroupAction"),
           child: const Icon(Icons.add),
           onPressed: () {
             // TODO
-            logInfo('Aqui navegar a AddGroupPage');
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const AddGroupPage()),
+            ); //Aqui navegar a AddGroupPage
           },
         ));
   }
 
   Future<void> addGroup(id, student1, student2) async {
-    firebaseController.addGoup(id, student1, student2);
+    firebaseController.addGroup(id, student1, student2);
   }
 
   Widget _buildItem(BuildContext context, Group group) {
@@ -66,3 +72,4 @@ class _GroupWidgetState extends State<GroupWidget> {
     );
   }
 }
+
