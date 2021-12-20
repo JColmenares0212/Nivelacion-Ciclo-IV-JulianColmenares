@@ -30,7 +30,7 @@ class _AddSesionPageState extends State<AddSesionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add sesion'),
+        title: const Text('Añadir Sesion'),
       ),
       body: Column(
         children: [
@@ -44,7 +44,7 @@ class _AddSesionPageState extends State<AddSesionPage> {
                 child: Text(val),
               );
             }).toList(),
-            hint: const Text("Please choose a group"),
+            hint: const Text("Porfavor escoja un grupo"),
             onChanged: (value) {
               setState(() {
                 _selectedGroupId = value!;
@@ -54,7 +54,7 @@ class _AddSesionPageState extends State<AddSesionPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text('Student 1'),
+              const Text('Estudiante 1'),
               Switch(
                 key: const ValueKey("sesionUser1"),
                 value: student1,
@@ -69,7 +69,7 @@ class _AddSesionPageState extends State<AddSesionPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text('Student 2'),
+              const Text('Estudiante 2'),
               Switch(
                 key: const ValueKey("sesionUser2"),
                 value: student2,
@@ -85,11 +85,11 @@ class _AddSesionPageState extends State<AddSesionPage> {
               key: const ValueKey("actionSesion"),
               onPressed: () {
                 // TODO
-                logInfo(
-                    'Aquí llamar al método addSesion del firebaseController');
+                firebaseController.addSesion(_selectedGroupId, student1,
+                    student2); //Aquí llamar al método addSesion del firebaseController
                 Get.back();
               },
-              child: const Text('Save sesion'))
+              child: const Text('Guardar sesion'))
         ],
       ),
     );
