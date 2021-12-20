@@ -12,12 +12,17 @@ class SesionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const Center(
-            // TODO
-            // child: Text(Obx(
-            //     () => ListView.builder(itemBuilder: firebaseController.groups))),
-            //Aquí colocar la lista de sesiones, recordar que se se debe escuchar el controlador (sesions) con obx
-            ),
+        body: Center(
+          // TODO
+          child: Obx(
+            () => ListView.builder(
+                itemCount: firebaseController.groups.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildItem(context, firebaseController.groups[index]);
+                }),
+          ),
+        ),
+        //Aquí colocar la lista de sesiones, recordar que se se debe escuchar el controlador (sesions) con obx
         floatingActionButton: FloatingActionButton(
           key: const ValueKey("addSesionAction"),
           child: const Icon(Icons.add),
