@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "972450727643",
+    "project_id": "nivelacion-mintic-juliancol",
+    "storage_bucket": "nivelacion-mintic-juliancol.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972450727643:android:7b56c23b2cbf68e77a6efe",
+        "android_client_info": {
+          "package_name": "com.example.misiontic_team_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972450727643-hgae21paehtcljdesop9h281eskke8qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2cAD5_9Ib0nHcKwaCbWqgRpuBu6v3ZT0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972450727643-hgae21paehtcljdesop9h281eskke8qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
