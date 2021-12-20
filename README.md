@@ -12,5 +12,7 @@ Este proyecto trabaja las funcionalidades de Firestore y autenticación de Fireb
 
 Pista: Revisar los comentarios TODO   
 
-
+echo "# Nivelacion-Ciclo-IV"
 <img src="firebase.gif" width="300" />
+
+Para el tema de los videos me comunique en Discord y con un asistente academico comentandoles los problemas que tengo con mi computador para hacer correr la aplicacion. Por lo que me es imposible hacer los videos que me piden. 
