@@ -21,7 +21,7 @@ class _AddGroupPageState extends State<AddGroupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Add group'),
+        title: const Text('Añadir Grupo'),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -36,10 +36,11 @@ class _AddGroupPageState extends State<AddGroupPage> {
                   TextFormField(
                     key: const ValueKey("groupId"),
                     controller: _groupIdController,
-                    decoration: const InputDecoration(labelText: 'Group Id'),
+                    decoration:
+                        const InputDecoration(labelText: 'ID del Grupo'),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Enter groupId";
+                        return "Ingrese el ID del grupo";
                       }
                     },
                   ),
@@ -49,10 +50,11 @@ class _AddGroupPageState extends State<AddGroupPage> {
                   TextFormField(
                     key: const ValueKey("groupUser1"),
                     controller: _student1Controller,
-                    decoration: const InputDecoration(labelText: 'Student 1'),
+                    decoration:
+                        const InputDecoration(labelText: 'Estudiante 1'),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Enter Student 1";
+                        return "Ingrese el Estudiante 1";
                       }
                     },
                   ),
@@ -62,10 +64,11 @@ class _AddGroupPageState extends State<AddGroupPage> {
                   TextFormField(
                     key: const ValueKey("groupUser2"),
                     controller: _student2Controller,
-                    decoration: const InputDecoration(labelText: 'Student 2'),
+                    decoration:
+                        const InputDecoration(labelText: 'Estudiante 2'),
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Enter Student 1";
+                        return "Ingrese el Estudiante 2";
                       }
                     },
                   ),
@@ -81,12 +84,13 @@ class _AddGroupPageState extends State<AddGroupPage> {
                         form!.save();
                         if (form.validate()) {
                           // TODO
-                          logInfo(
-                              'Aquí llamar al método addGroup del firebaseController');
+                          firebaseController.addGroup(_groupIdController,
+                              _student1Controller, _student2Controller);
+                          //Aquí llamar al método addGroup del firebaseController
                           Get.back();
                         }
                       },
-                      child: const Text("Submit")),
+                      child: const Text("Continuar")),
                 ],
               )),
         ),
