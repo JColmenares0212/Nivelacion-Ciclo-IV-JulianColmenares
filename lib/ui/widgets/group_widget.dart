@@ -22,12 +22,18 @@ class _GroupWidgetState extends State<GroupWidget> {
     // ignore: prefer_const_constructors
     return Scaffold(
         key: const ValueKey("groupsScaffold"),
-        body: const Center(
-            // TODO
-            // child: Text(Obx(
-            //     () => ListView.builder(itemBuilder: firebaseController.groups))),
-            // 'Aquí colocar la lista de grupos, recordar que se se debe escuchar el controlador (groups) con obx')
-            ),
+        body: Center(
+          // TODO
+          child: Obx(
+            () => ListView.builder(
+                itemCount: firebaseController.sesions.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return _buildItem(context, firebaseController.sesions[index]);
+                }),
+          ),
+        ),
+        // 'Aquí colocar la lista de grupos, recordar que se se debe escuchar el controlador (groups) con obx')
+
         floatingActionButton: FloatingActionButton(
           key: const ValueKey("addGroupAction"),
           child: const Icon(Icons.add),
@@ -72,4 +78,3 @@ class _GroupWidgetState extends State<GroupWidget> {
     );
   }
 }
-
