@@ -19,8 +19,8 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
     print('_login $theEmail $thePassword');
     try {
       // TODO
-      logInfo(
-          'Aquí llamar al método login del authenticationController con await');
+      await authenticationController.login(theEmail, thePassword);
+      //Aquí llamar al método login del authenticationController con await
     } catch (err) {
       Get.snackbar(
         "Login",
@@ -44,7 +44,7 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text(
-                "Login with email",
+                "Iniciar Sesion con E-mail",
                 style: TextStyle(fontSize: 20),
               ),
               const SizedBox(
@@ -54,12 +54,13 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
                 key: const ValueKey("loginEmail"),
                 keyboardType: TextInputType.emailAddress,
                 controller: controllerEmail,
-                decoration: const InputDecoration(labelText: "Email address"),
+                decoration:
+                    const InputDecoration(labelText: "Correo Electronico"),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Enter email";
+                    return "Ingrese su E-mail";
                   } else if (!value.contains('@')) {
-                    return "Enter valid email address";
+                    return "Ingrese un E-mail valido";
                   }
                 },
               ),
@@ -74,9 +75,9 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
                 obscureText: true,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Enter password";
+                    return "Ingresar Contraseña";
                   } else if (value.length < 6) {
-                    return "Password should have at least 6 characters";
+                    return "La contraseña debe contener al menos 6 caracteres";
                   }
                   return null;
                 },
@@ -95,16 +96,20 @@ class _FirebaseLogInState extends State<FirebaseLogIn> {
                     await _login(controllerEmail.text, controllerPassword.text);
                   }
                 },
-                child: const Text("Submit"),
+                child: const Text("Ingresar"),
               ),
             ]),
           ),
           TextButton(
               onPressed: () {
                 // TODO
-                logInfo('Aquí navegar a  FirebaseSignUp');
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            FirebaseSignUp())); //Aquí navegar a  FirebaseSignUp
               },
-              child: const Text("Create account"))
+              child: const Text("Crear una cuenta"))
         ],
       ),
     );
